@@ -31,13 +31,16 @@ class proyecto_xTests: XCTestCase {
     }
     
     func testIsVictoryFunction() {
+        // Arrange
         let state =  TicTacToeState()
-        var board = state.board
-            board.pressed = [.empty, .empty, CellState.playerX, .empty, CellState.playerX, .empty, CellState.playerX, .empty, .empty]
-        let result = state.isVictory([2, 4, 6])
-        print("board.pressed: ", board.pressed)
+        state.board.pressed = [CellState.playerX, CellState.playerX, CellState.playerX, .empty, .empty, .empty, .empty, .empty, .empty]
+        
+        // Act
+        let result = state.isVictory([0, 1, 2])
+        
+        // Assert
+        print("state.board.pressed: ", state.board.pressed)
         print("result: ", result)
         XCTAssertTrue(result)
     }
-
 }
